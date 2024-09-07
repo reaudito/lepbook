@@ -1,0 +1,14 @@
+[workspace.package]
+edition = "2021"
+licence = "AGPL"
+
+
+[workspace]
+members = ["crates-parsing/links-generator"]
+resolver = "2"
+
+
+[workspace.dependencies]
+tera = "1"
+lazy_static = "1"
+comrak = "0.28.0"

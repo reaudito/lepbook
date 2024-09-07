@@ -1,0 +1,46 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = """
+Which of the following best describes an event in the context of substrate blockchain runtime?
+"""
+prompt.distractors = [
+    "Transaction on the blockchain",
+    "A smart contract function",
+    "A consensus algorithm",
+]
+answer.answer = "A notification mechanism"
+id = "463d3dec-49f2-4748-baa4-75fee31d49d4"
+
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = """
+Emit the `MemberAdded` event with `member_id` and `who`.
+
+```rust
+#[pallet::event]
+#[pallet::generate_deposit(pub(super) fn deposit_event)]
+pub enum Event<T: Config> {
+    MemberAdded {
+        member_id: u32,
+        who: T::AccountId,
+    },
+}
+
+#[pallet::call_index(0)]
+#[pallet::weight(T::WeightInfo::add_member())]
+pub fn add_member(origin: OriginFor<T>, member_id: u32) -> DispatchResult {
+    let who = ensure_signed(origin)?;
+
+    MemberId::<T>::put(member_id);
+
+    // Emit an event.
+    ______________________
+
+    Ok(())
+}
+```
+"""
+answer.answer = "Self::deposit_event(Event::MemberAdded { member_id, who });"
+context = "It may display as a wrong answer, even if the answer is correct, if the spacing does not match. Please ignore it if this happens."
+id = "b317de89-93f8-48d1-8157-3c8c28fb5b13"
