@@ -1,10 +1,10 @@
 [workspace.package]
 edition = "2021"
-licence = "AGPL"
+license = "AGPL"
 
 
 [workspace]
-members = ["crates-parsing/links-generator"]
+members = ["crates-app/mdapp", "crates-parsing/links-generator"]
 resolver = "2"
 
 
@@ -12,3 +12,15 @@ resolver = "2"
 tera = "1"
 lazy_static = "1"
 comrak = "0.28.0"
+leptos = { version = "0.6.13", features = ["csr", "nightly"] }
+leptos-use = { version = "0.13" }
+leptos_router = { version = "0.6.13", features = ["csr", "nightly"] }
+leptos_icons = "0.3.0"
+icondata = "0.3.0"
+serde = "1.0.197"
+rand = "0.8.5"
+gloo = "0.11.0"
+thaw = { git = "https://github.com/thaw-ui/thaw.git", features = [
+    "csr",
+    "nightly",
+] }
